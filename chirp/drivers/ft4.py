@@ -1376,11 +1376,7 @@ class YaesuFT65RRadio(YaesuFT65GenericRadio):
     DUPLEX_AUTO = DUPLEX_AUTO_US
     legal_steps = VALID_STEPS
     BAND_ASSIGNMENTS = BAND_ASSIGNMENTS_DUALBAND
-    DUPLEX_OFF_VIA_OFFSET = [  # matches the order of valid_bands
-        None,  # Don't modify broadcast FM memories
-        ("-", 99_950_000),
-        ("+", 99_950_000),
-        ]
+    DUPLEX_OFF_VIA_OFFSET = None  # Disable the problematic behavior
 
 
 @directory.register
