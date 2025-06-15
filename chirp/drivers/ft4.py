@@ -534,7 +534,7 @@ POWER_LEVELS = [
 # these steps encode to 0-9 on all radios, but encoding #2 is disallowed
 # on the US versions (FT-4XR)
 STEP_CODE = [0, 5.0, 6.25, 10.0, 12.5, 15.0, 20.0, 25.0, 50.0, 100.0]
-VALID_STEPS = [x for x in STEP_CODE if x]
+VALID_STEPS = STEP_CODE  # Allow 0 as a valid step value
 US_LEGAL_STEPS = list(VALID_STEPS)  # copy to pass to UI on US radios
 US_LEGAL_STEPS.remove(6.25)       # euro radios just use STEP_CODE
 

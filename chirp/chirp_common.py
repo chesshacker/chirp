@@ -860,7 +860,7 @@ def LIST(v):
 
 
 def LIST_NONZERO_INT(v):
-    assert all(x > 0 for x in v)
+    assert all(x >= 0 for x in v)  # Allow 0 as a valid value
 
 
 def INT(min=0, max=None):
@@ -1774,6 +1774,10 @@ def required_step(freq, allowed=None):
     """Returns the simplest tuning step that is required to reach @freq"""
     if allowed is None:
         allowed = [5.0, 10.0, 12.5, 6.25, 2.5, 1.0, 0.5, 8.33, 0.25]
+
+    # Special case for step 0 (auto)
+    if 0 in allowed:
+        return 0
 
     special = {8.33: is_8_33}
     for step in allowed:
